@@ -1,0 +1,30 @@
+[project]
+name = "evidence-mcp"
+version = "0.1.0"
+description = "A small MCP server that archives one public web source as local research evidence with provenance."
+readme = "README.md"
+authors = [
+    { name = "Jiaxin Li", email = "JL2726@cornell.edu" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp>=2.2.0,<3",
+    "python-dotenv>=1.2.3",
+    "typing-extensions>=4.16.0",
+]
+
+[project.scripts]
+evidence-mcp = "evidence_mcp.server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
